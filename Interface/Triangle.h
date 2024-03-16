@@ -3,6 +3,7 @@
 
 class Triangle : public IShape {
 public:
+	Triangle(int A, int B, int C, int x, int y);
 	virtual void draw();
 	virtual void relocate(double x, double y);
 private:
