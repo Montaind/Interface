@@ -1,20 +1,29 @@
 #include "Circle.h"
 
-Circle::Circle(double x, double y, int radius)
-{
-	point_x = x;
-	point_y = y;
-	this->radius = radius;
-}
+Circle::Circle() : A(0, 0), radius(0) {}
+
+Circle::Circle(double x, double y, double radius) : A(x, y), radius(radius) {}
+
+Circle::Circle(Point A, double radius) : A(A), radius(radius){}
 
 void Circle::draw()
 {
-	std::cout << point_x << " " << point_y << " " << radius << "\n";
+	std::cout << A.x << " " << A.y << " " << radius;
 }
 
 void Circle::relocate(double x, double y)
 {
-	point_x = x;
-	point_y = y;
+	A.x += x;
+	A.y = y;
+}
+
+void Circle::relocate(Point location)
+{
+	A.x += location.x;
+	A.y += location.y;
+}
+
+Circle::~Circle()
+{
 }
 

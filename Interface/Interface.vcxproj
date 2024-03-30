@@ -129,11 +129,14 @@
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="IShape.h" />
+    <ClInclude Include="Point.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

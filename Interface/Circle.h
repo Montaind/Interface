@@ -3,11 +3,14 @@
 
 class Circle : public IShape {
 public:
-	Circle(double x, double y, int radius);
+	Circle();
+	Circle(double x, double y, double radius);
+	Circle(Point A, double radius);
 	virtual void draw() override;
 	virtual void relocate(double x, double y) override;
+	virtual void relocate(Point location) override;
+	~Circle();
 private:
-	double point_x;
-	double point_y;
-	int radius;
+	Point A;
+	double radius;
 };
