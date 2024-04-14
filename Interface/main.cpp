@@ -20,7 +20,7 @@ int main(int argc, char* args[]) {
 	SDL_Event* e = new SDL_Event();
 	if (SDL_Init(SDL_INIT_EVERYTHING))
 	{
-		printf("SDL не смог запуститься! SDL_Error: %s\n", SDL_GetError());
+		printf("SDL doesnt work! SDL_Error: %s\n", SDL_GetError());
 	}
 	else
 	{
@@ -46,7 +46,7 @@ int main(int argc, char* args[]) {
 		}
 		else
 		{
-			printf("Окно не может быть создано! SDL_Error: %s\n", SDL_GetError());
+			printf("Window cannot release! SDL_Error: %s\n", SDL_GetError());
 		}
 	}
 	delete e;
