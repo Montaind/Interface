@@ -16,9 +16,10 @@ Rectangle::~Rectangle()
 {
 }
 
-void Rectangle::draw()
+void Rectangle::draw(SDL_Renderer* renderer)
 {
-	std::cout << A.x << " " << A.y << " " << width << " " << length;
+	SDL_Rect rect = { A.x, A.y, width, length};
+	SDL_RenderDrawRect(renderer, &rect);
 }
 
 void Rectangle::relocate(double x, double y)

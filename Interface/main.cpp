@@ -1,13 +1,61 @@
 #include <iostream>
 #include "IShape.h"
+#include "Triangle.h"
+#include "Rectangle.h"
+#include "Circle.h"
 #include <vector>
-
+#include "SDL.h"
+#include <cstdio>
 typedef std::vector<IShape*> IShapeVector;
+const int SCREEN_WIDTH = 640;
+const int SCREEN_HEIGHT = 480;
 
-int main() {
+int main(int argc, char* args[]) {
 	IShapeVector shapes;
-	shapes.push_back(new Circle(*new Point(2, 3), 5));
-	shapes.push_back(new Circle(*new Point(4, 7), 10));
-	shapes.push_back(new Circle(*new Point(6, 2), 3));
-	shapes.push_back(new Triangle(*new Point(3, 2), *new Point(4, 1), *new Point(9, 5)));
+	shapes.push_back(new Rectangle(5, 5, 30, 10));
+	shapes.push_back(new Rectangle(50, 100, 200, 100));
+	shapes.push_back(new Rectangle(300, 200, 100, 40));
+    SDL_Window* window = nullptr;
+	SDL_Renderer* renderer = nullptr;
+	SDL_Event* e = new SDL_Event();
+	if (SDL_Init(SDL_INIT_EVERYTHING))
+	{
+		printf("SDL не смог запуститься! SDL_Error: %s\n", SDL_GetError());
+	}
+	else
+	{
+		window = SDL_CreateWindow("Gitler", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
+		renderer = SDL_CreateRenderer(window, -1, 0);
+		if (window)
+		{
+			while (true)
+			{
+				SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+				SDL_RenderClear(renderer);
+				SDL_PollEvent(e);
+
+				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
+
+				for (int i = 0; i < shapes.size(); i++)
+				{
+					shapes[i]->draw(renderer);
+				}
+
+				SDL_RenderPresent(renderer);
+			}
+		}
+		else
+		{
+			printf("Окно не может быть создано! SDL_Error: %s\n", SDL_GetError());
+		}
+	}
+	delete e;
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
+
+	return 0;
 }
+
+
+	

@@ -4,7 +4,7 @@ Triangle::Triangle() : A(0, 0), B(0, 0), C(0, 0) {}
 
 Triangle::Triangle(Point A, Point B, Point C) :A(A), B(B), C(C) {}
 
-void Triangle::draw()
+void Triangle::draw(SDL_Renderer* renderer)
 {
 	std::cout << A.x << " " << A.y << "\n" << B.x << " " << B.y << "\n" << C.x << " " << C.y;
 }

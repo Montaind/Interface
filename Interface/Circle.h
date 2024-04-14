@@ -6,7 +6,7 @@ public:
 	Circle();
 	Circle(double x, double y, double radius);
 	Circle(Point A, double radius);
-	virtual void draw() override;
+	virtual void draw(SDL_Renderer* renderer) override;
 	virtual void relocate(double x, double y) override;
 	virtual void relocate(Point location) override;
 	~Circle();

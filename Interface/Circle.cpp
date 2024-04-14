@@ -6,10 +6,11 @@ Circle::Circle(double x, double y, double radius) : A(x, y), radius(radius) {}
 
 Circle::Circle(Point A, double radius) : A(A), radius(radius){}
 
-void Circle::draw()
+void Circle::draw(SDL_Renderer* renderer)
 {
-	std::cout << A.x << " " << A.y << " " << radius;
+
 }
+
 
 void Circle::relocate(double x, double y)
 {
