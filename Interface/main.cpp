@@ -15,6 +15,7 @@ int main(int argc, char* args[]) {
 	shapes.push_back(new Rectangle(5, 5, 30, 10));
 	shapes.push_back(new Rectangle(50, 100, 200, 100));
 	shapes.push_back(new Rectangle(300, 200, 100, 40));
+	shapes.push_back(new Circle(150, 300, 45));
     SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	SDL_Event* e = new SDL_Event();
