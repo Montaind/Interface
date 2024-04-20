@@ -1,5 +1,7 @@
 #pragma once
 #include "IShape.h"
+#include <cmath>
+
 
 class Circle : public IShape {
 public:
