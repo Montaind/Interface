@@ -16,6 +16,7 @@ int main(int argc, char* args[]) {
 	shapes.push_back(new Rectangle(50, 100, 200, 100));
 	shapes.push_back(new Rectangle(300, 200, 100, 40));
 	shapes.push_back(new Circle(150, 300, 45));
+	shapes.push_back(new Triangle(*new Point(350, 241), *new Point(500, 300), *new Point(400, 400)));
     SDL_Window* window = nullptr;
 	SDL_Renderer* renderer = nullptr;
 	SDL_Event* e = new SDL_Event();
@@ -23,6 +24,7 @@ int main(int argc, char* args[]) {
 	{
 		printf("SDL doesnt work! SDL_Error: %s\n", SDL_GetError());
 	}
+
 	else
 	{
 		window = SDL_CreateWindow("Gitler", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_RESIZABLE);
