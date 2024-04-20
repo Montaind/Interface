@@ -6,7 +6,9 @@ Triangle::Triangle(Point A, Point B, Point C) :A(A), B(B), C(C) {}
 
 void Triangle::draw(SDL_Renderer* renderer)
 {
-	std::cout << A.x << " " << A.y << "\n" << B.x << " " << B.y << "\n" << C.x << " " << C.y;
+	SDL_RenderDrawLine(renderer, A.x, A.y, B.x, B.y);
+	SDL_RenderDrawLine(renderer, B.x, B.y, C.x, C.y);
+	SDL_RenderDrawLine(renderer, A.x, A.y, C.x, C.y);
 }
 
 void Triangle::relocate(double x, double y)
