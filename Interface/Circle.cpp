@@ -8,15 +8,17 @@ Circle::Circle(Point A, double radius) : A(A), radius(radius){}
 
 void Circle::draw(SDL_Renderer* renderer)
 {
-	while (radius > 0) {
-		int point_x = 0;
-		int point_y = 0;
-		for (int i = 0; i < 360; i++) {
-			point_x = A.x + radius * cos(i);
-			point_y = A.y + radius * sin(i);
-			SDL_RenderDrawPoint(renderer, point_x, point_y);
-		}
-		radius--;
+	int x;
+	int y;
+	int x0 = A.x + radius;
+	int y0 = A.y + radius;
+
+	double round = M_PI * 2;
+	for (double a = 0; a <= round; a += 0.001)
+	{
+		x = x0 + radius * cos(a);
+		y = y0 + radius * sin(a);
+		SDL_RenderDrawPoint(renderer, x, y);
 	}
 }
 
