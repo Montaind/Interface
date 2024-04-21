@@ -15,10 +15,8 @@ void Triangle::relocate(double x, double y)
 {
 	A.x += x;
 	A.y += y;
-
 	B.x += x;
 	B.y += y;
-	
 	C.x += x;
 	C.y += y;
 }
@@ -33,6 +31,16 @@ void Triangle::relocate(Point location)
 
 	C.x += location.x;
 	C.y += location.y;
+}
+
+void Triangle::scale(double s)
+{
+
+}
+
+void Triangle::rotate(double a)
+{
+
 }
 
 Triangle::~Triangle()

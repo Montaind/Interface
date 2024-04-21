@@ -7,8 +7,10 @@
 #include "SDL.h"
 #include <cstdio>
 typedef std::vector<IShape*> IShapeVector;
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+//const int SCREEN_WIDTH = 640;
+//const int SCREEN_HEIGHT = 480;
+const int SCREEN_WIDTH = 1000;
+const int SCREEN_HEIGHT = 1000;
 
 int main(int argc, char* args[]) {
 	IShapeVector shapes;
@@ -37,12 +39,33 @@ int main(int argc, char* args[]) {
 				SDL_RenderClear(renderer);
 				SDL_PollEvent(e);
 
+				switch (e->type) {
+				case SDL_KEYDOWN:
+					printf("Key %s pressed", SDL_GetKeyName(e->key.keysym.sym));
+					std::cout << "\n";
+					break;
+				case SDL_MOUSEMOTION:
+					printf("Mouse moved from (%d, %d), to (%d, %d)", e->motion.xrel, e->motion.yrel, e->motion.x, e->motion.y);
+					std::cout << "\n";
+					break;
+				case SDL_MOUSEBUTTONDOWN:
+					printf("Mouse button %d pressed at (%d, %d)\n", e->button.button, e->button.x, e->button.y);
+					break;
+				case SDL_QUIT:
+					exit(0);
+				}
+
+
+
+
 				SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
 
 				for (int i = 0; i < shapes.size(); i++)
 				{
 					shapes[i]->draw(renderer);
 				}
+
+
 
 				SDL_RenderPresent(renderer);
 			}

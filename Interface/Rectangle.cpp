@@ -18,8 +18,11 @@ Rectangle::~Rectangle()
 
 void Rectangle::draw(SDL_Renderer* renderer)
 {
-	SDL_Rect rect = { A.x, A.y, width, length};
-	SDL_RenderDrawRect(renderer, &rect);
+	SDL_RenderDrawLine(renderer, A.x, A.y, A.x + width, A.y);
+	SDL_RenderDrawLine(renderer, A.x, A.y, A.x, A.y + length);
+	SDL_RenderDrawLine(renderer, A.x, A.y + length, A.x + width, A.y + length);
+	SDL_RenderDrawLine(renderer, A.x + width, A.y, A.x + width, A.y + length);
+
 }
 
 void Rectangle::relocate(double x, double y)
@@ -32,6 +35,16 @@ void Rectangle::relocate(Point location)
 {
 	A.x += location.x;
 	A.y += location.y;
+}
+
+void Rectangle::scale(double s)
+{
+
+}
+
+void Rectangle::rotate(double a)
+{
+
 }
 
 

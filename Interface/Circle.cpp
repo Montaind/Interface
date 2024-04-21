@@ -35,6 +35,16 @@ void Circle::relocate(Point location)
 	A.y += location.y;
 }
 
+void Circle::scale(double s)
+{
+
+}
+
+void Circle::rotate(double a)
+{
+
+}
+
 Circle::~Circle()
 {
 }

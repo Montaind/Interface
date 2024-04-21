@@ -10,6 +10,8 @@ public:
 	virtual void draw(SDL_Renderer* renderer) override;
 	virtual void relocate(double x, double y) override;
 	virtual void relocate(Point location) override;
+	virtual void scale(double s) override;
+	virtual void rotate(double a) override;
 private:
 	Point A;
 	double width;
