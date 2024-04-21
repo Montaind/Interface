@@ -39,7 +39,8 @@ void Rectangle::relocate(Point location)
 
 void Rectangle::scale(double s)
 {
-
+	width *= s;
+	length *= s;
 }
 
 void Rectangle::rotate(double a)

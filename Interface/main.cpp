@@ -9,8 +9,8 @@
 typedef std::vector<IShape*> IShapeVector;
 //const int SCREEN_WIDTH = 640;
 //const int SCREEN_HEIGHT = 480;
-const int SCREEN_WIDTH = 1000;
-const int SCREEN_HEIGHT = 1000;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 800;
 
 int main(int argc, char* args[]) {
 	IShapeVector shapes;
@@ -41,8 +41,18 @@ int main(int argc, char* args[]) {
 
 				switch (e->type) {
 				case SDL_KEYDOWN:
-					printf("Key %s pressed", SDL_GetKeyName(e->key.keysym.sym));
-					std::cout << "\n";
+					switch (e->key.keysym.sym) {
+					case SDLK_i:
+						for (int i = 0; i < shapes.size(); i++) {
+							shapes[i]->scale(1.01);
+						}
+						break;
+					case SDLK_o:
+						for (int i = 0; i < shapes.size(); i++) {
+							shapes[i]->scale(0.99);
+						}
+						break;
+					}
 					break;
 				case SDL_MOUSEMOTION:
 					printf("Mouse moved from (%d, %d), to (%d, %d)", e->motion.xrel, e->motion.yrel, e->motion.x, e->motion.y);

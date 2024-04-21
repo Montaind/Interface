@@ -37,7 +37,7 @@ void Circle::relocate(Point location)
 
 void Circle::scale(double s)
 {
-
+	radius *= s;
 }
 
 void Circle::rotate(double a)
