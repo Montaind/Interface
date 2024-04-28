@@ -1,11 +1,13 @@
 #include "Triangle.h"
 
-Triangle::Triangle() : A(0, 0), B(0, 0), C(0, 0) {}
+Triangle::Triangle() : A(0, 0), B(0, 0), C(0, 0), color(color) {}
 
-Triangle::Triangle(Point A, Point B, Point C) :A(A), B(B), C(C) {}
+Triangle::Triangle(Point A, Point B, Point C, Color color) :A(A), B(B), C(C), color(color) {}
 
 void Triangle::draw(SDL_Renderer* renderer)
 {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
 	SDL_RenderDrawLine(renderer, A.x, A.y, B.x, B.y);
 	SDL_RenderDrawLine(renderer, B.x, B.y, C.x, C.y);
 	SDL_RenderDrawLine(renderer, A.x, A.y, C.x, C.y);

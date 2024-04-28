@@ -1,13 +1,15 @@
 #include "Circle.h"
 
-Circle::Circle() : A(0, 0), radius(0) {}
+Circle::Circle() : A(0, 0), radius(0), color(0,0,0,0) {}
 
-Circle::Circle(double x, double y, double radius) : A(x, y), radius(radius) {}
+Circle::Circle(double x, double y, double radius, Color color) : A(x, y), radius(radius), color(color) {}
 
-Circle::Circle(Point A, double radius) : A(A), radius(radius){}
+Circle::Circle(Point A, double radius, Color color) : A(A), radius(radius), color(color){}
 
 void Circle::draw(SDL_Renderer* renderer)
 {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
 	int x;
 	int y;
 	int x0 = A.x + radius;

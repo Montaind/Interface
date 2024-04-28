@@ -134,6 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="IShape.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Rectangle.h" />

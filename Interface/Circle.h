@@ -6,8 +6,8 @@
 class Circle : public IShape {
 public:
 	Circle();
-	Circle(double x, double y, double radius);
-	Circle(Point A, double radius);
+	Circle(double x, double y, double radius, Color color);
+	Circle(Point A, double radius, Color color);
 	virtual void draw(SDL_Renderer* renderer) override;
 	virtual void relocate(double x, double y) override;
 	virtual void relocate(Point location) override;
@@ -16,5 +16,6 @@ public:
 	~Circle();
 private:
 	Point A;
+	Color color;
 	double radius;
 };

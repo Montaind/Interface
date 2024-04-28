@@ -4,7 +4,7 @@
 class Triangle : public IShape {
 public:
 	Triangle();
-	Triangle(Point A, Point B, Point C);
+	Triangle(Point A, Point B, Point C, Color color);
 	virtual void draw(SDL_Renderer* renderer);
 	virtual void relocate(double x, double y) override;
 	virtual void relocate(Point location) override;
@@ -12,6 +12,7 @@ public:
 	virtual void rotate(double a) override;
 	~Triangle();
 private:
+	Color color;
 	Point A;
 	Point B;
 	Point C;
