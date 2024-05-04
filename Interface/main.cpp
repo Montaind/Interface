@@ -3,6 +3,7 @@
 #include "Triangle.h"
 #include "Rectangle.h"
 #include "Circle.h"
+#include "Line.h"
 #include <vector>
 #include "SDL.h"
 #include <cstdio>
@@ -17,6 +18,7 @@ int main(int argc, char* args[]) {
 	shapes.push_back(new Rectangle(5, 5, 30, 10, Color(230, 255, 0, 0)));
 	shapes.push_back(new Rectangle(50, 100, 200, 100, Color(230,255, 0, 0)));
 	shapes.push_back(new Rectangle(300, 200, 100, 40, Color(107, 31, 89, 0)));
+	shapes.push_back(new Line(Point(134, 700), 50 ,Color(107,31,89,0)));
 	/*shapes.push_back(new Circle(150, 300, 45, Color(83, 223, 191, 0)));
 	shapes.push_back(new Triangle(*new Point(350, 241), *new Point(500, 300), *new Point(400, 400), Color(216, 239, 5, 0)));*/
     SDL_Window* window = nullptr;
