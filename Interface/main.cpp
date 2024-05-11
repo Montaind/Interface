@@ -74,6 +74,14 @@ int main(int argc, char* args[]) {
 							if (shapes[i]->isSelected()) shapes[i]->relocate(0, 0.01);
 						}
 						break;
+					case SDLK_q:
+						for (int i = 0; i < shapes.size(); i++) {
+							if (shapes[i]->isSelected()) shapes[i]->rotate(0.1);
+						}
+					case SDLK_e:
+						for (int i = 0; i < shapes.size(); i++) {
+							if (shapes[i]->isSelected()) shapes[i]->rotate(-0.1);
+						}
 					}
 					break;
 				case SDL_MOUSEMOTION:

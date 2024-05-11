@@ -10,6 +10,8 @@ Line::~Line() {}
 
 void Line::draw(SDL_Renderer* renderer)
 {
+	if (selected) SDL_SetRenderDrawColor(renderer, 0, 68, 255, 0);
+	else SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 	SDL_RenderDrawLine(renderer, A.x, A.y, B.x, B.y);
 }
 
@@ -37,15 +39,16 @@ void Line::scale(double s)
 
 void Line::rotate(double a)
 {
-	angle *= a;
+	angle += a;
+	recalculate();
 }
 
 bool Line::contains(Point location)
 {
-	if (location.x >= A.x && location.x <= B.x && location.y == A.y) {
-		return true;
+	if (A.y == B.y) {
+		return (location.y == A.y && location.x >= A.x && location.x <= B.x);
 	}
-	return false;
+	return (location.x - A.x) / (B.x - A.x) == (location.y - A.y) / (B.y - A.y);
 }
 
 void Line::setSelection(bool selected)
