@@ -69,8 +69,8 @@ void Line::recalculate() {
 	if (angle < 0)
 	{
 		double a = angle * -1;
-		B.x = B.x * cos(a) + B.y * sin(a);
-		B.y = -1 * B.x * sin(a) + B.y * cos(a);
+		x_rel = B.x * cos(a) + B.y * sin(a);
+		y_rel = -1 * B.x * sin(a) + B.y * cos(a);
 	}
 	else
 	{
