@@ -62,8 +62,24 @@ bool Line::isSelected()
 }
 
 void Line::recalculate() {
-	B.x = A.x + lenght * scale_kef;
-	B.y = A.y;
-	B.x = B.x * cos(angle) + B.y * sin(angle);
-	B.y = B.x * sin(angle) + B.y * cos(angle);
+	B.x = lenght * scale_kef;
+	B.y = 0;
+	double x_rel = 0;
+	double y_rel = 0;
+	if (angle < 0)
+	{
+		double a = angle * -1;
+		B.x = B.x * cos(a) + B.y * sin(a);
+		B.y = -1 * B.x * sin(a) + B.y * cos(a);
+	}
+	else
+	{
+		x_rel = B.x * cos(angle) - B.y * sin(angle);
+		y_rel = B.x * sin(angle) + B.y * cos(angle);
+	}
+	
+	B.x = A.x + x_rel;
+	B.y = A.y + y_rel;
+
+	std::cout << "B.x: " << B.x << " " << "B.y: " << B.y << " " << "lenght: " << lenght << " " << "scale_kef: " << " " << scale_kef << " " << "angle: " << angle << " " << "sin: " << sin(angle) << " " << "cos: " << cos(angle) << "\n";
 }
