@@ -33,7 +33,7 @@ void Line::relocate(Point location)
 
 void Line::scale(double s)
 {
-	lenght *= s;
+	scale_kef = s;
 	recalculate();
 }
 
